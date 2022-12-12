@@ -1,0 +1,39 @@
+{
+    "name": "spawn",
+    "version": "0.0.1",
+    "command_name": "spawn",
+    "extension_author": "boku7",
+    "original_author": "boku7",
+    "repo_url": "https://github.com/NightlyEscaper/spawn",
+    "help": "Spawns a process, then injects & executes shellcode.",
+    "long_help": "Spawns a process, then injects & executes shellcode. Built to evade EDR/UserLand hooks by spawning the process with Arbitrary Code Guard (ACG), BlockDll, and PPID spoofing.",
+    "depends_on": "coff-loader",
+    "entrypoint": "go",
+    "files": [
+        {
+            "os": "windows",
+            "arch": "amd64",
+            "path": "spawn.x64.o"
+        }
+    ],
+    "arguments": [
+        {
+            "name": "name",
+            "desc": "Process name",
+            "type": "string",
+            "optional": false
+        },
+        {
+            "name": "ppid",
+            "desc": "Spoof ppid",
+            "type": "int",
+            "optional": false
+        },
+        {
+            "name": "bin",
+            "desc": "Shellcode bin file",
+            "type": "file",
+            "optional": false
+        }
+    ]
+}
